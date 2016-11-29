@@ -1,15 +1,22 @@
 package leetcode;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
+
 public class LongestCommonPrefix_14 {
 
 	public static void main(String[] args){
-		String[] strs = {""};
+		String[] strs = {"c","c"};
 		System.out.println("result="+longestCommonPrefix(strs));
 	}
 	
 	public static String longestCommonPrefix(String[] strs) {
 	       String result = "";
-	       int max = 0;
+	       
+	       
+	       Arrays.sort(strs);
+	       
+	       System.out.println(strs[0].substring(0, 0));
 	       
 	       if(strs.length == 0)
 		       return result;
@@ -21,28 +28,16 @@ public class LongestCommonPrefix_14 {
 	       
 	       else
 	       {
-	       for(int i = 0; i<strs.length;i++){
-	    	   if(strs[i].length() > strs[max].length())
-	    		   max = i;
-	    	   
+	    	   for(int i=1;i<=strs[0].length();i++){
+	    		   String prefix = strs[0].substring(0, i);
+	    		   System.out.println(prefix);
+	    		   if(strs[strs.length-1].startsWith(prefix)){
+	    			   result = strs[0].substring(0, i);
+	    		   }else
+	    			   return result;
+	    	   }
 	       }
-	       
-	       String maxStr = strs[max];
-	       result = maxStr;
-	      System.out.println(maxStr);
-	       
-	       for(int m = 1; m <= strs[max].length();m++){
-	    	   String prefix = strs[max].substring(0, m);
-	    	  System.out.println("prefix = "+prefix);
-		       for(int j = 0; j<strs.length;j++){
-		    	   if(!strs[j].startsWith(prefix)){
-		    		   System.out.println(j);
-		    		   result = strs[max].substring(0, m-1);
-		    		   return result;
-		    	   }
-		       }
-	       }
-	       }
+	      
 	       return result;
     }
 	
