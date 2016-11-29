@@ -1,5 +1,12 @@
 package leetcode;
 
+
+//2 columns which have numRows rows and distance is 2*numRows - 2;
+//between this 2 columns there are numRows-2 columns which only have numRows-2 rows
+//and distance from the first column are 2*numRows - 2 - 2*1;
+
+
+
 public class zigzag_6 {
 	
 	public static void main(String arg[]){
