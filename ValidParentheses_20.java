@@ -2,6 +2,9 @@ package leetcode;
 
 import java.util.Stack;
 
+//Stack; careful about the case "(){}[]"; so I can not put 1/2 length string to stack;
+//what I should do is push and check when condition meet ")"||"}"||"]";
+
 public class ValidParentheses_20 {
 	
 	public static void main(String args[]){
