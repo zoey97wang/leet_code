@@ -1,7 +1,5 @@
 package leetcode;
 
-//44ms 47.55%
-
 public class atoi_8 {
 
 	public static void main(String[] args){
@@ -10,9 +8,9 @@ public class atoi_8 {
 	
 	public static int myAtoi(String str) {
 		int result = 0;
-        int j=0;
+		int j=0;
+		int sign = 0;
         int mark = 1;
-        int sign = 0;
         int value;
         if(str.length()==0)
         	return 0;
