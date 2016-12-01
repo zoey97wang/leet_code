@@ -1,5 +1,7 @@
 package leetcode;
 
+//44ms 47.55%
+
 public class atoi_8 {
 
 	public static void main(String[] args){
