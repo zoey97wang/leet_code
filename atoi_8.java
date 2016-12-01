@@ -34,7 +34,7 @@ public class atoi_8 {
         			else
         			return Integer.MIN_VALUE;
         		}
-        		result = result*10 + str.charAt(j)-'0';
+        		result = result*10 + value;
         	}else{
         		return mark*result;
         	}
