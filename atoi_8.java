@@ -1,5 +1,6 @@
 package leetcode;
 
+//38ms remove whitespace and use value = str.charAt(j)-'0'
 public class atoi_8 {
 
 	public static void main(String[] args){
