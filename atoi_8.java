@@ -4,7 +4,6 @@ public class atoi_8 {
 
 	public static void main(String[] args){
 		System.out.println(myAtoi("2147483648"));
-		//System.out.println(Integer.MAX_VALUE);
 	}
 	
 	public static int myAtoi(String str) {
@@ -18,31 +17,24 @@ public class atoi_8 {
         while(str.charAt(j)==' '){
         	j++;
         }
-        for(int i=j;i<str.length();i++){
-        	if(str.charAt(i)=='-'||str.charAt(i)=='+')
+        for(j=j;j<str.length();j++){
+        	if(str.charAt(j)=='-'||str.charAt(j)=='+')
         		sign++;
-        	System.out.println(sign);
         	if(sign>1)
         		return 0;
-        	if(str.charAt(i)=='-')
+        	if(str.charAt(j)=='-')
         		mark = -1*mark;
-        	else if(str.charAt(i)=='+')
-        	{System.out.println("mark");
+        	else if(str.charAt(j)=='+')
         	    mark = 1*mark;
-        	}
-        	else if(str.charAt(i)<='9'&&str.charAt(i)>='0'){
-        		value = str.charAt(i)-'0';
-        		System.out.println(value);
-        		//System.out.println(result*10+value);
-        		System.out.println("0-9");
+        	else if(str.charAt(j)<='9'&&str.charAt(j)>='0'){
+        		value = str.charAt(j)-'0';
         		if(result>Integer.MAX_VALUE/10||(result==Integer.MAX_VALUE/10&&value>7)){
         			if(mark==1)
         			return Integer.MAX_VALUE;
         			else
         			return Integer.MIN_VALUE;
         		}
-        		result = result*10 + str.charAt(i)-'0';
-        		//System.out.println(result);
+        		result = result*10 + str.charAt(j)-'0';
         	}else{
         		return mark*result;
         	}
