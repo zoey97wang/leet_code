@@ -35,19 +35,20 @@ public class atoi_8 {
         		System.out.println(value);
         		//System.out.println(result*10+value);
         		System.out.println("0-9");
-        		if(result*10+7==Integer.MAX_VALUE&&value>7){
-        			System.out.println("max");
-        			return Integer.MAX_VALUE;}
-        		if(mark*result*10+8==Integer.MIN_VALUE&&value>8)
+        		if(result>Integer.MAX_VALUE/10||(result==Integer.MAX_VALUE/10&&value>7)){
+        			if(mark==1)
+        			return Integer.MAX_VALUE;
+        			else
         			return Integer.MIN_VALUE;
-        		//System.out.println(str.charAt(i));
-        		
-        		result = result*10 + value;
-        		System.out.println(result);
+        		}
+        		result = result*10 + str.charAt(i)-'0';
+        		//System.out.println(result);
         	}else{
-        	    return mark*result;
+        		return mark*result;
         	}
+        	
         }
+        
         return mark*result;
     }
 	
