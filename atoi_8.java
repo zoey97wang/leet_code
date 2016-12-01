@@ -39,9 +39,7 @@ public class atoi_8 {
         	}else{
         		return mark*result;
         	}
-        	
         }
-        
         return mark*result;
     }
 	
