@@ -12,17 +12,9 @@ public class SingleNumber_136 {
 	
 	public static int singleNumber(int[] nums) {
         int result = 0;
-        ArrayList<Integer> a1 = new ArrayList<Integer>();
-        for(int i=0; i<nums.length; i++){
-        	if(!a1.contains(nums[i]))
-        		a1.add(nums[i]);
-        	else
-        	{
-        		int index = a1.indexOf(nums[i]);
-        		a1.remove(index);
-        	}
+        for(int i = 0;i<nums.length;i++){
+        	result^=nums[i];
         }
-        result = a1.get(0);
         return result;
     }
 
