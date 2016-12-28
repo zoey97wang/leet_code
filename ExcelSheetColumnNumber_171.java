@@ -13,15 +13,14 @@ public class ExcelSheetColumnNumber_171 {
         int result = 0;
         char[] c = s.toCharArray();
         int l = c.length-1;
-        for(int i=0;i<=l;i++){
-        	if(i == l){
+        for(int i:c){
+        	result = result*26 + c[i]-64;
+ /*       	if(i == l){
         		result = c[i]-64 + result;
         	}else
         		result = (int) (Math.pow(26,(l-i)) * (c[i]-64) +result);
+ */
         }
-        
-        //(Math.pow(26,(l-i)) * (c[i]-64)
-        
         return result;
     }
 	
