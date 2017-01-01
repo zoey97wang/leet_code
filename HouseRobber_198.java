@@ -15,15 +15,18 @@ public class HouseRobber_198 {
 	//dp[1][0]=0;[1][1]=9;[2][0]=9;[2][1]=3;[3][0]=9;[3][1]=13;[4][0]=13;[4][1]=21
 
 	public static int rob(int[] nums) {
-		int result=0;
+		int result1=0;
+		int result2=0;
+		int temp;
 		int l = nums.length;
-		int[][] dp = new int[l+1][2]; 
+ 
 		for(int i =1;i<=l;i++){
-			dp[i][0] = Math.max(dp[i-1][0], dp[i-1][1]);
-			dp[i][1] = dp[i-1][0]+nums[i-1];
+			temp = result1;
+			result1 = Math.max(result1, result2);
+			result2 = temp+nums[i-1];
 		}
-		result = Math.max(dp[l][0], dp[l][1]);
-		return result;
+		return Math.max(result1, result2);
+
     }
 	
 	public static void sum(int id,int count,int result, ArrayList<Integer> a){
