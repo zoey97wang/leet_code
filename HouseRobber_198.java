@@ -7,79 +7,22 @@ public class HouseRobber_198 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int[] a1 = {1,3,1};
+		int[] a1 = {9,3,4,12,9};
 		System.out.println(rob(a1));
 	}
+	
+	//dp[0][0]=0;[0][1]=0;
+	//dp[1][0]=0;[1][1]=9;[2][0]=9;[2][1]=3;[3][0]=9;[3][1]=13;[4][0]=13;[4][1]=21
 
 	public static int rob(int[] nums) {
-		if(nums.length==1)
-			return nums[0];
-		int result = 0;
-		int l =nums.length;
-		int count = 0;
-		ArrayList<Integer> a = new ArrayList<>();
-		for(int i =0;i<l;i++){
-			a.add(nums[i]);
+		int result=0;
+		int l = nums.length;
+		int[][] dp = new int[l+1][2]; 
+		for(int i =1;i<=l;i++){
+			dp[i][0] = Math.max(dp[i-1][0], dp[i-1][1]);
+			dp[i][1] = dp[i-1][0]+nums[i-1];
 		}
-		Arrays.sort(nums);
-		for(int i=l-1;i>l/2-1;i--){
-			System.out.println(nums[i]);
-			int id = a.indexOf(nums[i]);
-			if(a.get(id)!=-1){
-				
-			if(id==0){
-				if(a.get(id+1)!=-1)
-				{
-					result = result + a.get(id);
-					a.set(id, -1);
-					count++;
-				}
-			}
-			else if(id==l-1){
-				if(a.get(id-1)!=-1){
-					result = result + a.get(id);
-					a.set(id, -1);
-					count++;
-				}
-			}
-			else{
-				if(a.get(id-1)!=-1&&a.get(id+1)!=-1)
-					{
-						result = result + a.get(id);
-						a.set(id, -1);
-						count++;
-					}	
-			}
-			}
-		}
-		for(int j=0;count<(l/2)+2&&j<l;j++){
-			if(a.get(j)!=-1)
-			{
-			if(j==0){
-				if(a.get(j+1)!=-1)
-				{
-					result = result + a.get(j);
-					a.set(j, -1);
-					count++;
-				}
-			}
-			else if(j==l-1){
-				if(a.get(j-1)!=-1){
-					result = result + a.get(j);
-					a.set(j, -1);
-					count++;
-				}
-			}
-			else{
-				if(a.get(j)!=-1&&a.get(j+1)!=-1)
-					{
-						result = result + a.get(j);
-						a.set(j, -1);
-						count++;
-					}	
-			}
-			}
-		}
+		result = Math.max(dp[l][0], dp[l][1]);
 		return result;
     }
 	
