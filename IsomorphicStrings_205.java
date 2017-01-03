@@ -17,7 +17,7 @@ public class IsomorphicStrings_205 {
         	int t2 = t.charAt(i);
         	if(s1[s2]==0&&t1[t2]==0){
         		s1[s2]=t2;
-        		t1[t2]=1;
+        		t1[t2]=1;                      //this one used for check ab aa;
         	}else if(s1[s2]!=t2)
         		return false;
         }
