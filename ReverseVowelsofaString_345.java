@@ -19,21 +19,19 @@ public class ReverseVowelsofaString_345 {
         int i=0;
         int j=s.length()-1;
         char temp;
-       // ,'A','E','I','O','U'
-        ArrayList<Character> a = new ArrayList<>(Arrays.asList('a','e','i','o','u'));
+        ArrayList<Character> a = new ArrayList<>(Arrays.asList('a','e','i','o','u','A','E','I','O','U'));
         while(i<j){
-        	if(a.contains(Character.toLowerCase(s2[i]))&&a.contains(Character.toLowerCase(s2[j]))){
-        		System.out.println(i+" & "+j);
+        	if(a.contains(s2[i])&&a.contains(s2[j])){
         		temp = s2[i];
         		s2[i]=s2[j];
         		s2[j]=temp;
         		i++;
         		j--;
         	}
-        	if(!a.contains(Character.toLowerCase(s2[i]))){
+        	if(!a.contains(s2[i])){
         		i++;
         	}
-        	if(!a.contains(Character.toLowerCase(s2[j]))){
+        	if(!a.contains(s2[j])){
         		j--;
         	}
         }
