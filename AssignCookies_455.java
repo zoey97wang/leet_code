@@ -26,5 +26,19 @@ public class AssignCookies_455 {
         }
         return result;
     }
+	
+	public int findContentChildren2(int[] g, int[] s) {
+        int result = 0;
+        Arrays.sort(g);
+        Arrays.sort(s);
+        for(int i=0,j=0;i<s.length&&j<g.length;i++,j++){
+            if(s[i]<g[j])
+            {   i++;
+                j--;}
+            else
+            	result++;
+        }
+        return result;
+    }
 
 }
