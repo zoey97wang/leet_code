@@ -29,6 +29,17 @@ public class PascalTriangleII_119 {
         return result.get(rowIndex);
     }
 	
+	public List<Integer> getRow2(int rowIndext){
+		List<Integer> result = new LinkedList<Integer>();
+		for(int i=0; i<=rowIndext; i++){
+			result.add(0,1);
+			for(int j=1; j<result.size()-1; j++){
+				result.set(j, result.get(j)+result.get(j)+1);
+			}
+		}
+		return result;
+	}
+	
 	
 	
 }
