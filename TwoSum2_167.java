@@ -25,4 +25,22 @@ public class TwoSum2_167 {
         return result;
     }
 	
+	public int[] sulotion(int[] numbers, int target){
+		int[] result = new int[2];
+		int left = 0;
+		int right = numbers.length-1;
+		while(left<right){
+			int v = numbers[left] + numbers[right];
+			if(v==target){
+				result[0] = left++;
+				result[1] = right++;
+				return result;
+			}else if(v<target)
+				left++;
+			else
+				right--;
+		}
+		return result;
+	}
+	
 }
