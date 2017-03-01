@@ -11,48 +11,33 @@ public class ImplementStackusingQueues_225 {
 	}
 
 	public class MyStack {
-	    Queue q1,q2;
+		Queue q;
 	    /** Initialize your data structure here. */
 	    public MyStack() {
-	        q1 = new LinkedList();
-	        q2 = new LinkedList();
+	        q = new LinkedList();
 	    }
 	    
 	    /** Push element x onto stack. */
 	    public void push(int x) {
-	        if(q1.peek() == null)
-	        {   q1.add(x);
-	            while(q2.peek()!=null){
-	                q1.add(q2.poll());
-	            }
-	        }
-	        else if(q2.peek() == null)
-	        {   q2.add(x);
-	            while(q1.peek()!=null){
-	                q2.add(q1.poll());
-	            }
+	        q.add(x);
+	        for(int i=0;i<q.size()-1;i++){
+	            q.add(q.poll());
 	        }
 	    }
 	    
 	    /** Removes the element on top of the stack and returns that element. */
 	    public int pop() {
-	        if(q1.peek()!=null)
-	            return (Integer)q1.poll();
-	        else
-	            return (Integer)q2.poll();
+	        return (Integer)q.poll();
 	    }
 	    
 	    /** Get the top element. */
 	    public int top() {
-	        if(q1.peek()!=null)
-	        return (Integer)q1.peek();
-	        else
-	        return (Integer)q2.peek();
+	        return (Integer)q.peek();
 	    }
 	    
 	    /** Returns whether the stack is empty. */
 	    public boolean empty() {
-	        return (q1.peek()==null&&q2.peek()==null)?true:false;
+	        return (q.peek()==null)?true:false;
 	    }
 	}
 	
