@@ -21,5 +21,13 @@ public class MissingNumber_268 {
             sum += i - nums[i];
         return sum;
     }
+	
+	public int missingNumber3(int[] nums) {
+        int sum = 0;
+        for(int i=0;i<nums.length;i++){
+            sum = sum^i^nums[i];
+        }
+        return sum^nums.length;
+    }
 
 }
