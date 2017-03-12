@@ -13,33 +13,35 @@ public class MinStack_155 {
 	public class MinStack {
 
 		ArrayList<Integer> al;
-		
-	    /** initialize your data structure here. */
-	    public MinStack() {
-	        al = new ArrayList<>();
-	    }
-	    
-	    public void push(int x) {
-	        al.add(x);
-	    }
-	    
-	    public void pop() {
-	    	if(al.size()>=1)
-	        al.remove(al.size()-1);
-	    }
-	    
-	    public int top() {
-	        return al.get(al.size()-1);
-	    }
-	    
-	    public int getMin() {
-	        int min = 0;
-	        for(int i =0; i<al.size(); i++){
-	        	if(al.get(i)<min)
-	        		min = al.get(i);
-	        }
-	        return min;
-	    }
+	    ArrayList<Integer> min;
+			
+		    /** initialize your data structure here. */
+		    public MinStack() {
+		        al = new ArrayList<>();
+		        min = new ArrayList<>();
+		    }
+		    
+		    public void push(int x) {
+		        al.add(x);
+		        if(min.size()==0||x<=min.get(min.size()-1))
+		            min.add(x);
+		    }
+		    
+		    public void pop() {
+		    	if(al.size()>=1){
+		    	    if(min.get(min.size()-1)>=al.get(al.size()-1))
+		    	        min.remove(min.size()-1);
+		            al.remove(al.size()-1);
+		    	}
+		    }
+		    
+		    public int top() {
+		        return al.get(al.size()-1);
+		    }
+		    
+		    public int getMin() {
+		        return min.get(min.size()-1);
+		    }
 	}
 
 }
