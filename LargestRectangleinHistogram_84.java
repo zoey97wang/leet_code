@@ -1,11 +1,29 @@
 package leetcode;
 
+import java.util.Stack;
+
 public class LargestRectangleinHistogram_84 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
 	}
+	
+	public int largestRectangleAreaStack(int[] heights) {
+        int max = 0;
+        Stack<Integer> ws = new Stack<Integer>();
+        int length = heights.length;
+        for(int i=0;i<=length;i++){
+            int post = i==length?-1:heights[i];
+            while(!ws.empty()&&post<heights[ws.peek()]){
+                int h = heights[ws.pop()];
+                int w = ws.empty()?i:i-ws.peek()-1;
+                max = Math.max(max,h*w);
+            }
+            ws.push(i);
+        }
+        return max;
+    }
 	
 	public int largestRectangleArea(int[] heights) {
         int max = 0;
