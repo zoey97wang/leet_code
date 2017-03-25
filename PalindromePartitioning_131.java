@@ -15,42 +15,44 @@ public class PalindromePartitioning_131 {
 		System.out.println(s.substring(2,5));
 	}
 	
-	public List<List<String>> partition(String s) {
-        System.out.println("sTRING"+s);
-        List<List<String>> result = new LinkedList<List<String>>();
-        int l = s.length();
-        for(int i=0;i<l;i++){
-            if(helper(s,0,i)){
-                System.out.println(s.charAt(i));
-                List<List<String>> temp = new LinkedList<List<String>>();
-                if(i!=l-1){
-                temp = partition(s.substring(i+1,l));
-                }
-                if(temp.size() == 0){
-                    LinkedList<String> ll = new LinkedList<String>();
-                    ll.add(s.substring(0,i+1));
-                    temp.add(ll);
-                }else{
-                    for(List tp:temp){
-                        tp.add(s.substring(0,i+1));
-                    }
-                }for(List t:temp){
-                    result.add(t);
-                }
-            }
-        }
-        return result;
-    }
-    public boolean helper(String s, int begin, int end){
-        if(begin<0)
-            return false;
-        while(begin<end){
-            if(s.charAt(begin++)!=s.charAt(end--)){
-                return false;
-            }
-        }
-        return true;
-    }
+	 public List<List<String>> partition(String s) {
+	        List<List<String>> result = new LinkedList<List<String>>();
+	        int l = s.length();
+	        for(int i=0;i<l;i++){
+	            if(helper(s,0,i)){
+	                List<List<String>> temp = new LinkedList<List<String>>();
+	                if(i!=l-1){
+	                temp = partition(s.substring(i+1,l));
+	                }
+	                if(temp.size() == 0){
+	                    LinkedList<String> ll = new LinkedList<String>();
+	                    ll.add(s.substring(0,i+1));
+	                    result.add(ll);
+	                }else{
+	                    for(List t:temp){
+	                    LinkedList<String> tl = new LinkedList<String>();
+	                    tl.add(s.substring(0,i+1));
+	                    for(int j=0;j<t.size();j++){
+	                        String s2 = t.get(j)+"";
+	                        tl.add(s2);
+	                    }
+	                    result.add(tl);
+	                    }
+	                }
+	            }
+	        }
+	        return result;
+	    }
+	    public boolean helper(String s, int begin, int end){
+	        if(begin<0)
+	            return false;
+	        while(begin<end){
+	            if(s.charAt(begin++)!=s.charAt(end--)){
+	                return false;
+	            }
+	        }
+	        return true;
+	    }
 	
 
 }
