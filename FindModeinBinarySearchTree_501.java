@@ -20,7 +20,7 @@ public class FindModeinBinarySearchTree_501 {
 	 }
 		 
 		public class Solution {
-		    Map m; 
+		    Map<Integer, Integer> m; 
 		    int max = 0;
 		    public int[] findMode(TreeNode root) {
 		        if(root==null)
@@ -28,9 +28,9 @@ public class FindModeinBinarySearchTree_501 {
 		        this.m = new HashMap<>();
 		        List<Integer> l = new LinkedList<Integer>();
 		        traverse(root);
-	//	        for(int key: m.keySet()){
-	//	            if((int) m.get(key) == max) l.add(key);
-	//	        }
+		        for(int key: m.keySet()){
+		        	if((int) m.get(key) == max) l.add(key);
+		        }
 		        int len = l.size();
 		        int[] result = new int[len];
 		        for(int i=0;i<len;i++){
