@@ -10,6 +10,31 @@ public class KdiffPairsinanArray_532 {
 
 	}
 	
+	public int findPairs(int[] nums, int k) {
+        if(k<0)
+            return 0;
+        HashSet<Integer> h = new HashSet<>();
+        Arrays.sort(nums);
+        int l = nums.length;
+        int i=0;
+        int j=1;
+        while(i<l&&j<l){
+            int t = nums[j]-nums[i];
+            if(t<k){
+                j++;
+            }else if(t==k){
+                h.add(nums[i]+ nums[j]);
+                i++;
+                j++;
+            }
+            else
+                i++;
+            if(i==j)
+                j++;
+        }
+        return h.size();
+    }
+	
 	public class Solution {
 	    public int findPairs(int[] nums, int k) {
 	        if(k<0)
