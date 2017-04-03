@@ -1,5 +1,9 @@
 package leetcode;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Stack;
+
 public class NextGreaterElementI_496 {
 
 	public static void main(String[] args) {
@@ -24,6 +28,23 @@ public class NextGreaterElementI_496 {
 	            if(result[i]==0)
 	                result[i] = -1;
 	        }
+	        return result;
+	    }
+	}
+	
+	public class Solution2{
+	    public int[] nextGreaterElement(int[] findNums, int[] nums) {
+	        Map<Integer,Integer> helper = new HashMap();
+	        Stack<Integer> s = new Stack<>();
+	        int l = findNums.length;
+	        int[] result = new int[l];
+	        for(Integer num:nums){
+	            while(!s.empty()&&s.peek() < num)
+	                helper.put(s.pop(),num);
+	            s.push(num);
+	        }
+	        for(int j=0;j<l;j++)
+	            result[j] = helper.getOrDefault(findNums[j],-1);
 	        return result;
 	    }
 	}
